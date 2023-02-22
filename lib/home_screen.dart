@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/form_validation_screen.dart';
 import 'package:flutter_application_1/get_utils_screen.dart';
 import 'package:get/get.dart';
 
@@ -41,6 +42,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             builder: (builder) => const GetUtilsScreen()));
                   },
                   child: const Text("Utils")),
+            ),
+            SizedBox(
+              width: Get.width,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => const Formvalidation()));
+                  },
+                  child: const Text("Form Validation")),
             )
           ],
         ),
