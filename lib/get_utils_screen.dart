@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class GetUtilsScreen extends StatefulWidget {
+  const GetUtilsScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<GetUtilsScreen> createState() => _GetUtilsScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _GetUtilsScreenState extends State<GetUtilsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           ElevatedButton(
               onPressed: () {
-                Get.showSnackbar(GetSnackBar(
+                Get.showSnackbar(const GetSnackBar(
                   title: "Hello",
                   backgroundColor: Colors.red,
                   titleText: Text("Hello 2"),
@@ -27,35 +25,35 @@ class _HomeScreenState extends State<HomeScreen> {
                   duration: Duration(seconds: 1),
                 ));
               },
-              child: Text("Show Snakbar")),
+              child: const Text("Show Snakbar")),
           ElevatedButton(
               onPressed: () {
                 Get.defaultDialog(
                     title: "Logout",
                     middleText: "I am middle Text",
                     // content: Text("Do u want to logout"),
-                    cancel: Text("Cancel"),
+                    cancel: const Text("Cancel"),
                     onCancel: () {
                       Get.back();
                       // navigator.pop(context);
                     },
-                    confirm: Text("Confirm"));
+                    confirm: const Text("Confirm"));
               },
-              child: Text("Show Dialog")),
+              child: const Text("Show Dialog")),
           ElevatedButton(
               onPressed: () {
                 Get.bottomSheet(
                     Container(
                       //height: MediaQuery.of(context).size.height * 0.6,
                       height: Get.height * 0.4,
-                      child: Text("data"),
                       color: Colors.white,
+                      child: const Text("data"),
                     ),
                     isDismissible: false,
                     enableDrag: false,
                     backgroundColor: Colors.green);
               },
-              child: Text("Show Bottom Sheet")),
+              child: const Text("Show Bottom Sheet")),
         ],
       ),
     );
