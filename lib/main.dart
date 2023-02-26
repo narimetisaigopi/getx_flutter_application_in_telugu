@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/form_validation_screen.dart';
 import 'package:flutter_application_1/home_screen.dart';
+import 'package:flutter_application_1/navigation_screen.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -17,9 +19,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: 'My App',
-      home: HomeScreen(),
+      // home: const HomeScreen(),
+      initialRoute: "/",
+      getPages: [
+        GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
+        GetPage(
+            name: NavigationScreen.routeName,
+            page: () => const NavigationScreen())
+      ],
     );
   }
 }
+
+// A > b > C == > Off
+// A > b > c ==>  offAll

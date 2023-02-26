@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/form_validation_screen.dart';
 import 'package:flutter_application_1/get_utils_screen.dart';
+import 'package:flutter_application_1/navigation_screen.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const String routeName = "/";
   const HomeScreen({super.key});
 
   @override
@@ -47,12 +49,20 @@ class _HomeScreenState extends State<HomeScreen> {
               width: Get.width,
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (builder) => const Formvalidation()));
+                    //Navigator.push(context,MaterialPageRoute( builder: (builder) => const Formvalidation()));
+                    Get.to(const Formvalidation());
                   },
                   child: const Text("Form Validation")),
+            ),
+            SizedBox(
+              width: Get.width,
+              child: ElevatedButton(
+                  onPressed: () async {
+                    var data = await Get.to(NavigationScreen.routeName,
+                        arguments: ["Hello world", 12.3, true, 143]);
+                    print(data ?? "No data");
+                  },
+                  child: const Text("Getx Navigation")),
             )
           ],
         ),
