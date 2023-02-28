@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/form_validation_screen.dart';
 import 'package:flutter_application_1/get_utils_screen.dart';
 import 'package:flutter_application_1/navigation_screen.dart';
+import 'package:flutter_application_1/state_management/my_posts_list_screen.dart';
 import 'package:get/get.dart';
+
+import 'state_management/state_manage_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/";
@@ -63,6 +66,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     print(data ?? "No data");
                   },
                   child: const Text("Getx Navigation")),
+            ),
+            SizedBox(
+              width: Get.width,
+              child: ElevatedButton(
+                  onPressed: () async {
+                    Get.to(StateManageScreen());
+                  },
+                  child:
+                      const Text("Getx Reactive State management (ObX/GetX)")),
+            ),
+            SizedBox(
+              width: Get.width,
+              child: ElevatedButton(
+                  onPressed: () async {
+                    Get.to(MyPostsListScreen());
+                  },
+                  child: const Text("Getx State GetBuilder")),
             )
           ],
         ),
